@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLDEN MUSE · reimagined</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Google Fonts: elegant serif + clean sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fcf8f2;
+      font-family: 'Inter', sans-serif;
+      color: #1e1a16;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ----- utility ----- */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ----- top bar: free shipping ----- */
+    .top-bar {
+      background: #2b241f;
+      color: #f0e4d5;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 300;
+      border-bottom: 1px solid #4a3e36;
+    }
+    .top-bar i {
+      margin-right: 0.5rem;
+      color: #d4b48c;
+    }
+
+    /* ----- header / brand + nav ----- */
+    .main-header {
+      background: #ffffffdd;
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid #e8ddd2;
+      padding: 1.2rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .header-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      color: #1e1610;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .brand i {
+      font-size: 1.8rem;
+      color: #b58b6b;
+    }
+
+    /* ----- navigation ----- */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1.2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.85rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #2b241f;
+      padding: 0.4rem 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s ease;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #b58b6b;
+      color: #000;
+    }
+    .nav-links a i {
+      margin-right: 6px;
+      font-size: 0.8rem;
+      color: #b58b6b;
+    }
+
+    /* mobile hamburger (hidden on desktop) */
+    .nav-toggle {
+      display: none;
+      font-size: 1.6rem;
+      color: #1e1610;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    /* ----- hero / featured section (replaces old hr + p) ----- */
+    .hero {
+      background: linear-gradient(145deg, #f6efe8 0%, #efe5db 100%);
+      margin: 2rem 0 0.5rem 0;
+      border-radius: 32px;
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+      border: 1px solid #e6d8cc;
+    }
+
+    .hero-text {
+      flex: 1 1 260px;
+    }
+    .hero-text .tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #7a6556;
+      background: #ede3d9;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .hero-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 600;
+      line-height: 1.1;
+      color: #1e1610;
+      margin-bottom: 0.8rem;
+    }
+    .hero-text h2 i {
+      color: #b58b6b;
+      font-size: 2.8rem;
+      margin-right: 8px;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #3d322b;
+      max-width: 450px;
+      font-weight: 300;
+      margin-bottom: 1.8rem;
+    }
+    .hero-btn {
+      background: #1e1610;
+      color: #f6efe8;
+      border: none;
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      transition: 0.25s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .hero-btn i {
+      font-size: 1rem;
+    }
+    .hero-btn:hover {
+      background: #3d2c21;
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .hero-image {
+      flex: 0 0 180px;
+      text-align: center;
+      font-size: 5rem;
+      color: #b58b6b;
+      background: #ede3d9;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 3px solid #ffffffcc;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+    }
+    .hero-image i {
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+    }
+
+    /* ----- collections preview (quiet luxury) ----- */
+    .collections-snapshot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: center;
+      margin: 2.8rem 0 1.5rem;
+    }
+    .snap-item {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.2rem 2rem 1.2rem 1.8rem;
+      flex: 1 1 180px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid #ece1d7;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+    }
+    .snap-item:hover {
+      border-color: #b58b6b;
+      background: #fcf7f2;
+      transform: translateY(-2px);
+    }
+    .snap-item i {
+      font-size: 2rem;
+      color: #b58b6b;
+      width: 2.4rem;
+      text-align: center;
+    }
+    .snap-item span {
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      color: #2b241f;
+    }
+    .snap-item small {
+      display: block;
+      font-size: 0.7rem;
+      color: #7f6b5c;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ----- footer (refined) ----- */
+    .site-footer {
+      margin-top: auto;
+      border-top: 1px solid #e2d4c8;
+      padding: 2rem 0 1.8rem;
+      background: #fcf8f2;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-inner p {
+      font-size: 0.9rem;
+      color: #4f3f35;
+      letter-spacing: 1px;
+      font-weight: 300;
+    }
+    .footer-inner p i {
+      margin: 0 4px;
+      color: #b58b6b;
+    }
+    .footer-socials a {
+      color: #2b241f;
+      margin-left: 1.2rem;
+      font-size: 1.1rem;
+      opacity: 0.6;
+      transition: 0.2s;
+    }
+    .footer-socials a:hover {
+      opacity: 1;
+      color: #b58b6b;
+    }
+
+    /* ----- responsive ----- */
+    @media screen and (max-width: 780px) {
+      .header-grid {
+        flex-wrap: wrap;
+      }
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.2rem 0 0.4rem;
+        gap: 0.5rem;
+        border-top: 1px solid #e2d4c8;
+        margin-top: 0.6rem;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+      .hero-text h2 {
+        font-size: 2.6rem;
+      }
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-image {
+        margin-top: 1.5rem;
+        width: 140px;
+        height: 140px;
+        font-size: 4rem;
+      }
+      .collections-snapshot {
+        flex-direction: column;
+        align-items: center;
+      }
+      .snap-item {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-socials a {
+        margin: 0 0.6rem;
+      }
+    }
+
+    @media screen and (min-width: 781px) {
+      .nav-toggle {
+        display: none !important;
+      }
+      .nav-links {
+        display: flex !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- free shipping top bar (reimagined) -->
+  <div class="top-bar">
+    <i class="fas fa-truck-fast"></i> FREE SHIPPING ON ALL ORDERS · GOLDEN MUSE
+  </div>
+
+  <!-- header: brand + nav -->
+  <header class="main-header">
+    <div class="container header-grid">
+      <a href="#" class="brand">
+        <i class="fas fa-crown"></i> GOLDEN MUSE
+      </a>
+
+      <!-- mobile toggle -->
+      <button class="nav-toggle" id="navToggle" aria-label="menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- navigation -->
+      <nav class="nav-links" id="navLinks">
+    <a href="home.html">HOME</a>
+            <a href="shop.html">SHOP</a>
+            <a href="collections.html">COLLECTIONS</a
+            <a href="about.html">ABOUT US</a>
+            <a href="reach us .html">REACH US</a>
+            <a href="help and support.html">HELP</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- hero section (replaces old hr & p) -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="tag"><i class="fas fa-star" style="margin-right: 6px;"></i> new season</div>
+        <h2><i class="fas fa-feather-pointed"></i>Timeless<br>Elegance</h2>
+        <p>Discover the art of understated luxury. Each piece curated for the modern muse.</p>
+        <a href="#" class="hero-btn"><i class="fas fa-arrow-right"></i> explore </a>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-gem"></i>
+      </div>
+    </section>
+
+    <!-- quiet collection preview (visual rhythm) -->
+    <div class="collections-snapshot">
+      <div class="snap-item">
+        <i class="fas fa-ring"></i>
+        <div><span>Jewelry</span><small>14k gold · limited</small></div>
+      </div>
+      <div class="snap-item">
+        <i class="fas fa-watch"></i>
+        <div><span>Timepieces</span><small>Swiss movement</small></div>
+      </div>
+      <div class="snap-item">
+        <i class="fas fa-bag-shopping"></i>
+        <div><span>Handbags</span><small>Italian leather</small></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- footer redesigned with elegance -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        <i class="far fa-copyright"></i> 2026 · GOLDEN MUSE 
+        <span style="margin: 0 0.6rem; opacity:0.3;">|</span> 
+        <i class="fas fa-feather" style="opacity:0.6;"></i> 
+        <span style="font-weight:300; letter-spacing:0.5px;">since 2018</span>
+      </p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- tiny js for mobile nav toggle -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('navLinks');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          nav.classList.toggle('open');
+          // change icon
+          const icon = toggle.querySelector('i');
+          if (nav.classList.contains('open')) {
+            icon.className = 'fas fa-xmark';
+          } else {
+            icon.className = 'fas fa-bars';
+          }
+        });
+        // close on outside click (optional)
+        document.addEventListener('click', function(e) {
+          if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+            nav.classList.remove('open');
+            const icon = toggle.querySelector('i');
+            icon.className = 'fas fa-bars';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
