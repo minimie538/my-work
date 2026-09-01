@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <title>Golden Muse · Elegance</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+    body {
+      background: #faf7f2;
+      color: #1e1e1e;
+      padding: 0 20px;
+    }
+    /* header / top bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 16px 0 8px;
+      border-bottom: 1px solid #e4dbd0;
+    }
+    .free-ship {
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: #b4947a;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    .brand {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 6px;
+      color: #2c221c;
+      font-family: 'Times New Roman', serif;
+    }
+    .brand span {
+      font-weight: 600;
+      color: #b48b6b;
+    }
+    nav {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 12px 0 6px;
+      background: #faf7f2;
+    }
+    nav a {
+      text-decoration: none;
+      color: #2c221c;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: 0.2s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 4px;
+    }
+    nav a:hover {
+      color: #b48b6b;
+      border-bottom-color: #b48b6b;
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d6c9bc, transparent);
+      margin: 8px 0 24px;
+    }
+    /* hero - full background image */
+    .hero {
+      position: relative;
+      border-radius: 32px;
+      margin: 12px 0 40px;
+      padding: 60px 40px;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 32px;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(30,22,18,0.55) 0%, rgba(30,22,18,0.20) 70%, rgba(30,22,18,0.05) 100%);
+      border-radius: 32px;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      color: #fff;
+    }
+    .hero-content h1 i {
+      color: #f5e2d0;
+      font-weight: 300;
+    }
+    .hero-content p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.92);
+      margin: 18px 0 28px;
+      max-width: 450px;
+      line-height: 1.7;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    }
+    .btn-primary {
+      background: #fff;
+      border: none;
+      padding: 14px 44px;
+      color: #1e1612;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.25s;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover {
+      background: #b48b6b;
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(180,139,107,0.4);
+      transform: scale(1.02);
+    }
+    /* section titles */
+    .section-title {
+      text-align: center;
+      margin: 48px 0 16px;
+    }
+    .section-title h2 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: #1e1612;
+    }
+    .section-title p {
+      color: #6b5b4e;
+      margin-top: 6px;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    /* card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px 18px;
+      margin: 28px 0 20px;
+    }
+    .collection-card {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 18px 12px 22px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+      transition: 0.2s;
+      border: 1px solid #f0e9e1;
+    }
+    .collection-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.04);
+      border-color: #dccfc2;
+    }
+    .image-box {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #f3ede7;
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      transition: 0.2s;
+    }
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 0.3s;
+    }
+    .collection-card h3 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      color: #1e1612;
+      margin: 6px 0 10px;
+    }
+    .card-btn {
+      background: transparent;
+      border: 1px solid #d4c5b8;
+      padding: 8px 22px;
+      border-radius: 60px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #2c221c;
+      cursor: pointer;
+      transition: 0.2s;
+      text-transform: uppercase;
+    }
+    .card-btn:hover {
+      background: #1e1612;
+      color: #fcf8f4;
+      border-color: #1e1612;
+    }
+    .card-btn.alt {
+      background: #1e1612;
+      color: white;
+      border: none;
+    }
+    .card-btn.alt:hover {
+      background: #b48b6b;
+      color: #1e1612;
+    }
+    /* best sellers grid */
+    .best-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 26px 16px;
+      margin: 28px 0 40px;
+    }
+    .best-item {
+      background: white;
+      border-radius: 30px;
+      padding: 16px 10px 20px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.01);
+      border: 1px solid #eee6de;
+      transition: 0.2s;
+    }
+    .best-item:hover {
+      border-color: #cbb9a8;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.02);
+    }
+    .best-item .image-box {
+      border-radius: 20px;
+      aspect-ratio: 1/1;
+      background: #f2ebe4;
+    }
+    .best-item h3 {
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      margin: 12px 0 10px;
+      color: #2c221c;
+    }
+    footer {
+      margin: 40px 0 20px;
+      padding: 24px 0 10px;
+      border-top: 1px solid #e4dbd0;
+      text-align: center;
+      color: #7a6b5e;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 40px 24px; min-height: 300px; }
+      .hero-content h1 { font-size: 2.2rem; }
+      .brand { font-size: 1.6rem; letter-spacing: 3px; }
+      nav { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- top bar -->
+  <div class="top-bar">
+    <span class="free-ship"><i class="fas fa-gem" style="margin-right: 8px;"></i> FREE SHIPPING ON ORDER</span>
+    <span class="brand">GOLDEN <span>MUSE</span></span>
+    <span style="opacity:0;">.</span>
+  </div>
+
+  <nav>
+    <nav>
+            <a href="home.html">HOME</a>
+            <a href="shop.html">SHOP</a>
+            <a href="collections.html">COLLECTIONS</a
+            <a href="about.html">ABOUT US</a>
+            <a href="reach us .html">REACH US</a>
+            <a href="help and support.html">HELP</a>
+        </nav>
+  <hr>
+
+  <!-- hero section with full background image -->
+  <section class="hero">
+    <img class="hero-bg" src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1200&auto=format&fit=crop" alt="Golden Muse luxury jewelry background" loading="lazy">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Elegance <i>That</i> Speaks For You.</h1>
+      <p>Discover timeless accessories designed to add beauty, confidence, and luxury to every look.</p>
+      <button class="btn-primary">Shop now</button>
+    </div>
+  </section>
+
+  <!-- featured collection -->
+  <div class="section-title">
+    <h2>Featured Collection</h2>
+    <p>Explore our latest pieces made for every elegant moment.</p>
+  </div>
+
+  <div class="card-grid">
+    <!-- luxury jewellery -->
+    <div class="collection-card">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400&auto=format&fit=crop" alt="Luxury jewellery" loading="lazy">
+      </div>
+      <h3>Luxury Jewellery</h3>
+      <button class="card-btn alt">Shop now</button>
+    </div>
+    <!-- luxury rings -->
+    <div class="collection-card">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&auto=format&fit=crop" alt="Luxury rings" loading="lazy">
+      </div>
+      <h3>Luxury Rings</h3>
+      <button class="card-btn alt">Shop now</button>
+    </div>
+    <!-- luxury earrings -->
+    <div class="collection-card">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&auto=format&fit=crop" alt="Luxury earrings" loading="lazy">
+      </div>
+      <h3>Luxury Earrings</h3>
+      <button class="card-btn alt">Shop now</button>
+    </div>
+    <!-- luxury bracelets -->
+    <div class="collection-card">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=400&auto=format&fit=crop" alt="Luxury bracelets" loading="lazy">
+      </div>
+      <h3>Luxury Bracelets</h3>
+      <button class="card-btn alt">Shop now</button>
+    </div>
+  </div>
+
+  <!-- best sellers -->
+  <div class="section-title" style="margin-top: 30px;">
+    <h2>Best Sellers</h2>
+    <p style="opacity:0.7;">timeless favourites, loved by many</p>
+  </div>
+
+  <div class="best-grid">
+    <!-- classic ring 1 -->
+    <div class="best-item">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&auto=format&fit=crop" alt="Classic Ring" loading="lazy">
+      </div>
+      <h3>Classic Ring</h3>
+      <button class="card-btn">Add to cart</button>
+    </div>
+    <!-- classic ring 2 -->
+    <div class="best-item">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&auto=format&fit=crop" alt="Classic Ring gold" loading="lazy">
+      </div>
+      <h3>Classic Ring</h3>
+      <button class="card-btn">Add to cart</button>
+    </div>
+    <!-- gold link bracelet -->
+    <div class="best-item">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&auto=format&fit=crop" alt="Gold link bracelet" loading="lazy">
+      </div>
+      <h3>Gold Link Bracelet</h3>
+      <button class="card-btn">Add to cart</button>
+    </div>
+    <!-- pearl drop earrings -->
+    <div class="best-item">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&auto=format&fit=crop" alt="Pearl drop earrings" loading="lazy">
+      </div>
+      <h3>Pearl Drop Earrings</h3>
+      <button class="card-btn">Add to cart</button>
+    </div>
+    <!-- elegance gold necklace -->
+    <div class="best-item">
+      <div class="image-box">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&auto=format&fit=crop" alt="Elegance gold necklace" loading="lazy">
+      </div>
+      <h3>Elegance Gold Necklace</h3>
+      <button class="card-btn">Add to cart</button>
+    </div>
+  </div>
+
+  <footer>
+    <p><i class="far fa-gem" style="margin-right: 8px;"></i> @2026 golden muse · crafted with elegance</p>
+  </footer>
+
+</body>
+</html>

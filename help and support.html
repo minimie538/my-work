@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support · Goldie Muse</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fcf8f5;
+            color: #1e1a17;
+            line-height: 1.5;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background: #2c241f;
+            color: #f2e5db;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 400;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .top-bar span {
+            opacity: 0.9;
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 1rem 3rem;
+            background: #fcf8f5;
+            border-bottom: 1px solid #eee5dd;
+        }
+
+        .nav-links a {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            color: #2c241f;
+            text-decoration: none;
+            margin-right: 2rem;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #b48b7a; }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #2c241f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.2;
+        }
+        .logo span {
+            font-size: 0.6rem;
+            letter-spacing: 2.5px;
+            font-weight: 300;
+            color: #7f6b5f;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.3rem;
+            color: #2c241f;
+        }
+        .nav-icons span { cursor: default; }
+
+        /* HERO */
+        .help-hero {
+            background: linear-gradient(145deg, #f6f0eb 0%, #fcf8f5 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid #eee5dd;
+        }
+        .help-hero h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #2c241f;
+            letter-spacing: 2px;
+        }
+        .help-hero p {
+            color: #6f5b4e;
+            max-width: 520px;
+            margin: 0.5rem auto 1.8rem;
+            font-size: 1rem;
+        }
+        .search-box {
+            display: flex;
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 60px;
+            border: 1px solid #ddd0c6;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0.9rem 1.5rem;
+            font-size: 0.85rem;
+            outline: none;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            color: #2c241f;
+        }
+        .search-box input::placeholder {
+            color: #b3a094;
+        }
+        .search-box button {
+            background: #2c241f;
+            border: none;
+            padding: 0 1.8rem;
+            color: white;
+            font-size: 1rem;
+            cursor: default;
+            transition: 0.2s;
+        }
+        .search-box button:hover {
+            background: #4f3c32;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            max-width: 1300px;
+            margin: 3rem auto 2rem;
+            padding: 0 2rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .section-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #2c241f;
+        }
+        .section-title span {
+            display: block;
+            color: #a67b67;
+            font-size: 1.2rem;
+            margin-top: 4px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .faq-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #f1eae4;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .faq-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+        .card-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid #f1eae4;
+            padding-bottom: 0.8rem;
+        }
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            background: #f6f0eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a67b67;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .card-heading h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: #2c241f;
+        }
+        .faq-card a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #3d322b;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #f6f0eb;
+            transition: 0.2s;
+        }
+        .faq-card a:hover {
+            color: #a67b67;
+            padding-left: 4px;
+        }
+        .faq-card a span {
+            color: #b3a094;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+        .faq-card a:hover span {
+            color: #a67b67;
+            transform: translateX(3px);
+        }
+
+        /* SUPPORT SECTION */
+        .support-section {
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .support-intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .support-intro p:first-child {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: #a67b67;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .support-intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: #2c241f;
+            margin: 0.2rem 0;
+        }
+        .star-line {
+            color: #a67b67;
+            font-size: 1.2rem;
+            display: block;
+            margin: 0.4rem 0 0.8rem;
+        }
+        .support-text {
+            max-width: 480px;
+            margin: 0 auto 1.5rem;
+            color: #6f5b4e;
+            font-size: 0.95rem;
+        }
+        .contact-btn {
+            display: inline-block;
+            background: #2c241f;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 2.2rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+        .contact-btn i {
+            margin-left: 6px;
+            transition: 0.2s;
+        }
+        .contact-btn:hover {
+            background: #4f3c32;
+        }
+        .contact-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .support-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid #f1eae4;
+            transition: 0.2s;
+        }
+        .support-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+        .support-card i {
+            font-size: 2rem;
+            color: #a67b67;
+            margin-bottom: 0.6rem;
+        }
+        .support-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c241f;
+            letter-spacing: 1px;
+        }
+        .support-card p {
+            color: #6f5b4e;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #fcf8f5;
+            border-top: 1px solid #eee5dd;
+            padding: 2.5rem 2rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-brand h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2c241f;
+            letter-spacing: 2px;
+        }
+        .footer-brand span {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: #7f6b5f;
+            text-transform: uppercase;
+            display: block;
+            margin: 0.1rem 0 0.5rem;
+        }
+        .footer-brand p {
+            color: #6f5b4e;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+        .social-icons a {
+            color: #2c241f;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+        .social-icons a:hover { color: #a67b67; }
+
+        .footer-links h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: #2c241f;
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            display: block;
+            color: #6f5b4e;
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 0.2rem 0;
+            transition: 0.2s;
+        }
+        .footer-links a:hover { color: #a67b67; padding-left: 4px; }
+
+        .newsletter h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: #2c241f;
+            margin-bottom: 0.4rem;
+        }
+        .newsletter p {
+            color: #6f5b4e;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .newsletter-box {
+            display: flex;
+            border: 1px solid #ddd0c6;
+            border-radius: 60px;
+            overflow: hidden;
+            background: white;
+        }
+        .newsletter-box input {
+            flex: 1;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.75rem;
+            outline: none;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+        }
+        .newsletter-box button {
+            background: #2c241f;
+            border: none;
+            padding: 0 1.2rem;
+            color: white;
+            cursor: default;
+            transition: 0.2s;
+        }
+        .newsletter-box button:hover { background: #4f3c32; }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #b3a094;
+            letter-spacing: 1px;
+            border-top: 1px solid #eee5dd;
+            padding-top: 1.5rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .navbar { flex-direction: column; gap: 0.8rem; padding: 0.8rem 1rem; }
+            .nav-links a { margin: 0 0.6rem; font-size: 0.75rem; }
+            .logo { font-size: 1.4rem; }
+            .nav-icons { gap: 1rem; font-size: 1.1rem; }
+            .help-hero { padding: 2.5rem 1rem; }
+            .help-hero h2 { font-size: 2.2rem; }
+            .faq-grid { grid-template-columns: 1fr 1fr; }
+            .support-options { grid-template-columns: 1fr 1fr; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 500px) {
+            .top-bar { font-size: 0.6rem; gap: 1rem; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .support-options { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; }
+            .help-hero h2 { font-size: 1.8rem; }
+            .search-box input { font-size: 0.75rem; padding: 0.7rem 1rem; }
+            .search-box button { padding: 0 1.2rem; }
+            .support-intro h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <span>✦ FREE DELIVERY ON SELECTED ORDERS</span>
+        <span>NEW COLLECTION JUST DROPPED! 💎</span>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="home.html">HOME</a>
+            <a href="shop.html">SHOP</a>
+            <a href="collections.html">COLLECTIONS</a
+            <a href="about.html">ABOUT US</a>
+            <a href="reach us .html">REACH US</a>
+            <a href="help and support.html">HELP</a>
+        </div>
+        <div class="logo">
+            Goldie Muse
+            <span>timeless pieces. made for you.</span>
+        </div>
+        <div class="nav-icons">
+            <span>⌕</span>
+            <span>♙</span>
+            <span>🛍</span>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="help-hero">
+        <h2>How can we help you?</h2>
+        <p>We're here to make your experience with Goldie Muse seamless, beautiful, and truly special.</p>
+        <div class="search-box">
+            <input type="text" placeholder="Search for orders, delivery, returns...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="section-title">
+            <h2>FREQUENTLY ASKED QUESTIONS</h2>
+            <span>✦</span>
+        </div>
+
+        <div class="faq-grid">
+
+            <!-- CARD 1 -->
+            <div class="faq-card">
+                <div class="card-heading">
+                    <div class="icon-circle"><i class="fa-solid fa-box"></i></div>
+                    <h3>ORDERS & SHIPPING</h3>
+                </div>
+                <a href="#">Where is my order? <span>›</span></a>
+                <a href="#">How long does delivery take? <span>›</span></a>
+                <a href="#">Can I change or cancel my order? <span>›</span></a>
+                <a href="#">Do you ship internationally? <span>›</span></a>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="faq-card">
+                <div class="card-heading">
+                    <div class="icon-circle"><i class="fa-solid fa-credit-card"></i></div>
+                    <h3>PAYMENTS</h3>
+                </div>
+                <a href="#">What payment methods do you accept? <span>›</span></a>
+                <a href="#">Is my payment information secure? <span>›</span></a>
+                <a href="#">Why was my payment declined? <span>›</span></a>
+                <a href="#">Do you offer Cash on Delivery? <span>›</span></a>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="faq-card">
+                <div class="card-heading">
+                    <div class="icon-circle"><i class="fa-solid fa-arrow-rotate-left"></i></div>
+                    <h3>RETURNS & EXCHANGES</h3>
+                </div>
+                <a href="#">How do I return an item? <span>›</span></a>
+                <a href="#">Can I exchange my jewellery? <span>›</span></a>
+                <a href="#">When will I receive my refund? <span>›</span></a>
+                <a href="#">What items are non-returnable? <span>›</span></a>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="faq-card">
+                <div class="card-heading">
+                    <div class="icon-circle"><i class="fa-regular fa-gem"></i></div>
+                    <h3>PRODUCTS</h3>
+                </div>
+                <a href="#">Are your jewellery pieces hypoallergenic? <span>›</span></a>
+                <a href="#">How should I care for my jewellery? <span>›</span></a>
+                <a href="#">What materials do you use? <span>›</span></a>
+                <a href="#">Do you offer customisation? <span>›</span></a>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="faq-card">
+                <div class="card-heading">
+                    <div class="icon-circle"><i class="fa-regular fa-user"></i></div>
+                    <h3>ACCOUNT & SUPPORT</h3>
+                </div>
+                <a href="#">How do I create an account? <span>›</span></a>
+                <a href="#">I forgot my password. What should I do? <span>›</span></a>
+                <a href="#">How do I update my account details? <span>›</span></a>
+                <a href="#">How can I contact customer support? <span>›</span></a>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="faq-card">
+                <div class="card-heading">
+                    <div class="icon-circle"><i class="fa-solid fa-gift"></i></div>
+                    <h3>GIFTS & SPECIAL ORDERS</h3>
+                </div>
+                <a href="#">Do you offer gift wrapping? <span>›</span></a>
+                <a href="#">Can I add a personalised note? <span>›</span></a>
+                <a href="#">Do you offer bulk orders? <span>›</span></a>
+                <a href="#">How long does custom jewellery take? <span>›</span></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SUPPORT -->
+    <section class="support-section">
+        <div class="support-intro">
+            <p>STILL NEED HELP?</p>
+            <h2>We're just a message away</h2>
+            <span class="star-line">✦</span>
+            <p class="support-text">If you couldn't find the answer you were looking for, our support team is here to assist you.</p>
+            <a href="#" class="contact-btn">CONTACT US <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="support-options">
+            <div class="support-card">
+                <i class="fa-regular fa-envelope"></i>
+                <h3>EMAIL US</h3>
+                <p>support@goldiemuse.com<br>We usually reply within 24 hours</p>
+            </div>
+            <div class="support-card">
+                <i class="fa-regular fa-comment-dots"></i>
+                <h3>LIVE CHAT</h3>
+                <p>Chat with our team in real-time.<br>Mon – Sun: 10AM – 8PM</p>
+            </div>
+            <div class="support-card">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>WHATSAPP</h3>
+                <p>+233 XX XXX XXXX<br>Mon – Sun: 10AM – 8PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>GOLDIE MUSE</h2>
+                <span>TIMELESS. ELEGANT. YOU.</span>
+                <p>Jewellery that celebrates you.<br>Made to shine. Made to last.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>QUICK LINKS</h3>
+                <a href="home.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="collections.html">Collections</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="help and support.html">Help</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>CUSTOMER CARE</h3>
+                <a href="#">Track Your Order</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Returns & Refunds</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <div class="newsletter">
+                <h3>NEWSLETTER</h3>
+                <p>Subscribe to get special offers, new arrivals, and jewellery tips.</p>
+                <div class="newsletter-box">
+                    <input type="email" placeholder="Enter your email">
+                    <button><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">© 2026 GOLDIE MUSE. ALL RIGHTS RESERVED.</div>
+    </footer>
+
+</body>
+</html>
